@@ -1,0 +1,30 @@
+# encoding: utf-8
+patch:
+  switches:
+    - name: ascii_mode
+      reset: 0
+      states: ["中文", "西文"]
+    - name: full_shape
+      states: ["半角", "全角"]
+    - name: extended_charset
+      states: ["常用", "增廣"]
+    - name: ascii_punct
+      states: ["。，", "．，"]
+    - name: show_es
+      reset: 1
+      states: [ 😔, 😀 ]
+    - name: emoji_suggestion
+      reset: 1
+      states: [ "🈚️️\uFE0E", "🈶️️\uFE0F" ]
+  engine/filters:
+    - simplifier@emoji_suggestion
+    - simplifier@es_conversion
+    - uniquifier
+    - lua_filter@*thai_hint
+  emoji_suggestion:
+    opencc_config: emoji.json
+    option_name: emoji_suggestion
+    tips: all
+  es_conversion:
+    opencc_config: es.json
+    option_name: show_es

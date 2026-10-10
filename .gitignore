@@ -1,0 +1,33 @@
+# Rime user dictionaries and generated databases
+*.userdb/
+
+# Device sync copies and installation state
+sync/
+installation.yaml
+
+# Old and removed configuration files
+trash/
+*.bak
+*.backup
+*~
+
+# Build and cache
+build/
+dist/
+out/
+bin/
+obj/
+.cache/
+cache/
+tmp/
+temp/
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
